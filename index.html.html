@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>علي ❤️ ريان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #ff6b9d;
+    --gold-light: #ff9dc0;
+    --gold-pale: #ffd0e8;
+    --red: #c0003c;
+    --red-bright: #e8074f;
+    --cream: #fff0f5;
+    --dark: #1a0008;
+    --dark2: #2d0012;
+    --petal: #ff6b8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: #ffe0ec;
+    font-family: 'Scheherazade New', serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 20px; height: 20px;
+    border: 2px solid #ff6b9d;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  }
+  .cursor-dot {
+    position: fixed;
+    width: 6px; height: 6px;
+    background: #ff6b9d;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+
+  /* ===== PARTICLES ===== */
+  #particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.8; }
+    90%  { opacity: 0.5; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  /* ===== HERO ===== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(192,0,60,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(255,107,157,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,107,157,0.15) 0%, transparent 60%);
+    animation: breathe 6s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* ornament lines */
+  .ornament-line {
+    width: 180px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+    margin: 0.8rem auto;
+    position: relative;
+  }
+  .ornament-line::before, .ornament-line::after {
+    content: '✦';
+    position: absolute;
+    top: -8px;
+    color: var(--gold);
+    font-size: 10px;
+  }
+  .ornament-line::before { left: -5px; }
+  .ornament-line::after { right: -5px; }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+    letter-spacing: 0.35em;
+    color: #ff9dc0;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeInUp 1s 0.5s forwards;
+    margin-bottom: 0.5rem;
+  }
+  .hero-names {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    color: #ffe0ec;
+    text-shadow: 0 0 40px rgba(255,107,157,0.6), 0 0 80px rgba(192,0,60,0.4);
+    opacity: 0;
+    animation: fadeInUp 1.2s 0.8s forwards;
+  }
+  .hero-names span {
+    color: #ff9dc0;
+    display: inline-block;
+    animation: goldPulse 3s ease-in-out infinite;
+  }
+  @keyframes goldPulse {
+    0%,100% { text-shadow: 0 0 20px rgba(255,107,157,0.8); }
+    50% { text-shadow: 0 0 60px rgba(255,107,157,1), 0 0 100px rgba(192,0,60,0.5); }
+  }
+  .heart-icon {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    display: inline-block;
+    animation: heartBeat 1.2s ease-in-out infinite;
+    color: var(--red-bright);
+    margin: 0 0.3rem;
+    filter: drop-shadow(0 0 12px rgba(212,84,122,0.9));
+  }
+  @keyframes heartBeat {
+    0%,100% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.2); }
+    56% { transform: scale(1); }
+  }
+
+  .hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    color: #ff9dc0;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards;
+    letter-spacing: 0.2em;
+    margin-top: 0.3rem;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0;
+    animation: fadeIn 1s 3s forwards;
+    color: #ff9dc0;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+  .scroll-arrow {
+    width: 20px; height: 20px;
+    border-right: 1px solid #ff6b9d;
+    border-bottom: 1px solid #ff6b9d;
+    transform: rotate(45deg);
+    animation: scrollBounce 1.5s ease-in-out infinite;
+  }
+  @keyframes scrollBounce {
+    0%,100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(6px); }
+  }
+
+  /* ===== COUNTER SECTION ===== */
+  #counter {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 50%, var(--dark) 100%);
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    color: #ff9dc0;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  .counter-grid {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 3rem);
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  .counter-box {
+    background: linear-gradient(135deg, rgba(192,0,60,0.15), rgba(255,107,157,0.08));
+    border: 1px solid rgba(255,107,157,0.35);
+    border-radius: 4px;
+    padding: clamp(1rem, 3vw, 2rem) clamp(1.2rem, 4vw, 2.5rem);
+    position: relative;
+    overflow: hidden;
+    min-width: 90px;
+  }
+  .counter-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+  }
+  .counter-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255,107,157,0.08), transparent 70%);
+  }
+
+  .counter-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    color: #ff6b9d;
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(255,107,157,0.6);
+  }
+
+  .counter-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+    color: rgba(255,224,236,0.6);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+  }
+
+  .counter-poem {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: rgba(255,224,236,0.75);
+    margin-top: 2rem;
+    line-height: 1.8;
+  }
+
+  /* ===== LETTER SECTION ===== */
+  #letter {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .letter-wrapper {
+    background: linear-gradient(135deg,
+      rgba(192,0,60,0.18) 0%,
+      rgba(26,0,8,0.96) 40%,
+      rgba(26,0,8,0.96) 60%,
+      rgba(255,107,157,0.1) 100%
+    );
+    border: 1px solid rgba(255,107,157,0.25);
+    border-radius: 2px;
+    padding: clamp(2rem, 6vw, 4rem);
+    position: relative;
+    box-shadow:
+      0 0 80px rgba(192,0,60,0.25),
+      inset 0 0 60px rgba(0,0,0,0.3);
+  }
+
+  .letter-wrapper::before,
+  .letter-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 30px; height: 30px;
+    border-color: #ff6b9d;
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .letter-wrapper::before { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+  .letter-wrapper::after  { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+
+  .letter-salutation {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #ff6b9d;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .letter-body {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+    line-height: 2.2;
+    color: rgba(255,224,236,0.92);
+    text-align: justify;
+  }
+  .letter-body p { margin-bottom: 1.5rem; }
+
+  .letter-seal {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    animation: sealPulse 2s ease-in-out infinite;
+  }
+  @keyframes sealPulse {
+    0%,100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255,107,157,0.6)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 30px rgba(192,0,60,1)); }
+  }
+
+  /* ===== PHOTOS SECTION ===== */
+  #photos {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+    gap: 1rem;
+    max-width: 700px;
+    margin: 2rem auto;
+  }
+
+  .photo-frame {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,107,157,0.35);
+    background: rgba(212,175,55,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,107,157,0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .photo-frame:hover::before { opacity: 1; }
+  .photo-frame:hover {
+    border-color: rgba(255,107,157,0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(192,0,60,0.3), 0 0 20px rgba(255,107,157,0.2);
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+  .photo-frame.has-image img { display: block; }
+  .photo-frame.has-image .photo-placeholder { display: none; }
+  .photo-placeholder {
+    text-align: center;
+    padding: 1rem;
+  }
+  .photo-plus {
+    font-size: 1.8rem;
+    color: rgba(255,107,157,0.5);
+    display: block;
+    margin-bottom: 0.4rem;
+    transition: color 0.3s;
+  }
+  .photo-frame:hover .photo-plus { color: rgba(212,175,55,0.8); }
+  .photo-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    color: rgba(255,107,157,0.5);
+    letter-spacing: 0.2em;
+  }
+  .photo-input { display: none; }
+
+  /* ===== GAME: MEMORY HEARTS ===== */
+  #game {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .game-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: rgba(255,224,236,0.75);
+    margin: 1rem 0 2rem;
+    font-style: italic;
+  }
+
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(6px, 2vw, 12px);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .card {
+    aspect-ratio: 1;
+    cursor: pointer;
+    perspective: 600px;
+    position: relative;
+  }
+  .card-inner {
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+  }
+  .card.flipped .card-inner { transform: rotateY(180deg); }
+  .card.matched .card-inner { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-back {
+    background: linear-gradient(135deg, rgba(192,0,60,0.25), rgba(26,0,8,0.95));
+    border: 1px solid rgba(255,107,157,0.3);
+    font-size: clamp(1.1rem, 4vw, 1.6rem);
+    color: rgba(255,107,157,0.5);
+  }
+  .card-front {
+    background: linear-gradient(135deg, rgba(192,0,60,0.6), rgba(100,0,30,0.95));
+    border: 1px solid rgba(255,107,157,0.6);
+    transform: rotateY(180deg);
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    box-shadow: inset 0 0 20px rgba(255,107,157,0.15);
+  }
+  .card.matched .card-front {
+    border-color: #ff6b9d;
+    box-shadow: 0 0 20px rgba(212,175,55,0.5), inset 0 0 20px rgba(212,175,55,0.15);
+    animation: matchGlow 0.5s ease forwards;
+  }
+  @keyframes matchGlow {
+    0% { transform: rotateY(180deg) scale(1); }
+    50% { transform: rotateY(180deg) scale(1.1); }
+    100% { transform: rotateY(180deg) scale(1); }
+  }
+
+  .game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: #ff9dc0;
+    letter-spacing: 0.1em;
+  }
+
+  .game-btn {
+    background: transparent;
+    border: 1px solid rgba(232,116,154,0.5);
+    color: #ff9dc0;
+    padding: 0.7rem 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+  }
+  .game-btn:hover {
+    background: rgba(212,175,55,0.1);
+    border-color: #ff6b9d;
+    box-shadow: 0 0 20px rgba(212,175,55,0.3);
+  }
+
+  .win-message {
+    display: none;
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: #ff9dc0;
+    margin-top: 1.5rem;
+    text-shadow: 0 0 30px rgba(232,116,154,0.6);
+    animation: fadeInUp 0.8s forwards;
+  }
+  .win-message.show { display: block; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(255,107,157,0.2);
+  }
+  .footer-names {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: #ff9dc0;
+    letter-spacing: 0.1em;
+  }
+  .footer-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: rgba(255,224,236,0.35);
+    letter-spacing: 0.3em;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  /* ===== SECTION DIVIDER ===== */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    max-width: 300px;
+    opacity: 0.6;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .divider-line:last-child {
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .divider-sym { color: #ff6b9d; font-size: 0.8rem; }
+
+  /* ===== FALLING PETALS ===== */
+  .petal-el {
+    position: fixed;
+    pointer-events: none;
+    font-size: 1rem;
+    animation: fallPetal linear infinite;
+    z-index: 0;
+    opacity: 0;
+  }
+  @keyframes fallPetal {
+    0%   { transform: translateY(-20px) rotate(0deg) translateX(0); opacity: 0; }
+    10%  { opacity: 0.7; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(100vh) rotate(720deg) translateX(40px); opacity: 0; }
+  }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* modal for photo */
+  .photo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .photo-modal.open { display: flex; }
+  .photo-modal img { max-width: 90vw; max-height: 80vh; border: 1px solid rgba(255,107,157,0.4); }
+  .modal-close {
+    color: #e8749a;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 1px solid rgba(255,107,157,0.35);
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .modal-close:hover { background: rgba(192,0,60,0.2); }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Particles -->
+<div id="particles"></div>
+
+<!-- Photo Modal -->
+<div class="photo-modal" id="photoModal">
+  <div class="modal-close" onclick="closeModal()">✕</div>
+  <img id="modalImg" src="" alt="">
+</div>
+
+<!-- ========== HERO ========== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <p class="hero-subtitle">مع كل نبضة قلب</p>
+  <div class="ornament-line"></div>
+  <h1 class="hero-names">
+    علي <span class="heart-icon">♥</span> ريان
+  </h1>
+  <div class="ornament-line"></div>
+  <p class="hero-date">٨ يناير ٢٠٢٦ — إلى الأبد</p>
+  <div class="scroll-hint">
+    <span>اكتشفي</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ========== COUNTER ========== -->
+<section id="counter">
+  <p class="section-label reveal">معاً منذ</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">✦</span>
+    <div class="divider-line"></div>
+  </div>
+  <div class="counter-grid reveal">
+    <div class="counter-box">
+      <div class="counter-num" id="cnt-days">0</div>
+      <div class="counter-label">يوم</div>
+    </div>
+    <div class="counter-box">
+      <div class="counter-num" id="cnt-hours">0</div>
+      <div class="counter-label">ساعة</div>
+    </div>
+    <div class="counter-box">
+      <div class="counter-num" id="cnt-mins">0</div>
+      <div class="counter-label">دقيقة</div>
+    </div>
+    <div class="counter-box">
+      <div class="counter-num" id="cnt-secs">0</div>
+      <div class="counter-label">ثانية</div>
+    </div>
+  </div>
+  <p class="counter-poem reveal">
+    كل ثانية معكِ هي نعمةٌ لا تُعوَّض<br>
+    وكل يوم يمرّ يزيدني يقيناً أنكِ أجمل ما منحني الله
+  </p>
+</section>
+
+<!-- ========== LETTER ========== -->
+<section id="letter">
+  <p class="section-label reveal" style="text-align:center">رسالة من القلب</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">❤</span>
+    <div class="divider-line"></div>
+  </div>
+  <div class="letter-wrapper reveal">
+    <div class="letter-salutation">
+      يا ريوني<br>
+      يا حبيبتي
+    </div>
+    <div class="letter-body">
+      <p>أيعجز القلب عن وصف ما يشعر به نحوكِ، أم تعجز الكلمات عن حمل ما يفيض به من حب؟ فوالله ما عرفت للحب معنىً حتى عرفتكِ، ولا أدركت للجمال حقيقةً حتى وقعت عيناي عليكِ.</p>
+      <p>أنتِ النور الذي يبدّد عتمة أيامي، والطمأنينة التي تأوي إليها روحي كلما أثقلتها الحياة. إذا ضحكتِ أزهرت الدنيا في عيني، وإذا غبتِ شعرتُ أن شيئًا من روحي قد غاب معكِ.</p>
+      <p>أحبكِ حبًا لا تحدّه المسافات، ولا تنقصه الأيام، ولا تغيّره الظروف. أحبكِ لأنكِ أنتِ، بكل ما فيكِ من رقةٍ وصدقٍ وجمال. أحب حديثكِ الذي لا أملّه، وابتسامتكِ التي تسلب مني كل حزن، وعينيكِ اللتين أرى فيهما عالمًا أودّ أن أبقى فيه إلى الأبد.</p>
+      <p>لو خُيّرت بين نعيم الدنيا كلها وبين لحظةٍ أكون فيها بقربكِ، لاخترت قربكِ دون تردد. ولو كُتب لي أن أصف مكانتكِ في قلبي، لعجزت الأقلام وجفّ الحبر قبل أن تبلغ بعض ما لكِ من قدرٍ ومحبة.</p>
+      <p>فكوني على يقينٍ أن لكِ في قلبي منزلةً لا يشارككِ فيها أحد، وأن دعائي في كل حين أن يحفظكِ الله، ويجعل الفرح رفيقكِ، وأن يديمكِ نعمةً جميلةً في حياتي.</p>
+      <p>أحبكِ حبًا لو وُزّع على الأرض كلها لكفاها، وما زال في قلبي منه ما لا تُحيط به الكلمات.</p>
+    </div>
+    <div class="letter-seal">❤️</div>
+  </div>
+</section>
+
+<!-- ========== PHOTOS ========== -->
+<section id="photos">
+  <p class="section-label reveal">ذكرياتنا</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">✦</span>
+    <div class="divider-line"></div>
+  </div>
+  <p class="game-intro reveal">اضغطي على الإطار لتضيفي صورة من ذكرياتنا 📸</p>
+  <div class="photos-grid reveal" id="photosGrid"></div>
+</section>
+
+<!-- ========== GAME ========== -->
+<section id="game">
+  <p class="section-label reveal">لعبة الحب 💝</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">♥</span>
+    <div class="divider-line"></div>
+  </div>
+  <p class="game-intro reveal">اقلبي البطاقات وابحثي عن الأزواج المتطابقة 🃏</p>
+  <div class="game-stats reveal">
+    <span>المحاولات: <strong id="moveCount">0</strong></span>
+    <span>الأزواج: <strong id="matchCount">0</strong>/8</span>
+  </div>
+  <div class="game-board reveal" id="gameBoard"></div>
+  <div class="win-message" id="winMsg">
+    🎉 يا ريان أنتِ أذكى وأحلى! ❤️<br>
+    مثلما وجدتِ كل الأزواج، وجدتِ قلبي أنتِ! 💕
+  </div>
+  <button class="game-btn reveal" onclick="initGame()">إعادة اللعبة ↻</button>
+</section>
+
+<!-- ========== GAME 2: QUIZ ========== -->
+<section id="game2" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">اختبري معلوماتك 💕</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">❓</span>
+    <div class="divider-line"></div>
+  </div>
+  <p class="game-intro reveal">كم تعرفين عن علاقتنا؟ 🥰</p>
+  <div id="quizContainer" class="reveal" style="max-width:500px;margin:0 auto;"></div>
+  <div id="quizResult" style="display:none;font-family:'Scheherazade New',serif;font-size:clamp(1.2rem,4vw,1.6rem);color:#ff6b9d;margin-top:1.5rem;text-shadow:0 0 20px rgba(232,116,154,0.4);"></div>
+  <button class="game-btn reveal" onclick="initQuiz()" style="margin-top:1.5rem;">إعادة الاختبار ↻</button>
+</section>
+
+<!-- ========== GAME 3: HEART CLICKER ========== -->
+<section id="game3" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">اضغطي على القلوب ❤️</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">♥</span>
+    <div class="divider-line"></div>
+  </div>
+  <p class="game-intro reveal">اجمعي أكبر عدد من القلوب في 15 ثانية! 💝</p>
+  <div style="margin:1rem 0;">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#ff6b9d;">النقاط: <strong id="heartScore">0</strong></span>
+    &nbsp;&nbsp;
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#ff6b9d;">الوقت: <strong id="heartTimer">15</strong>ث</span>
+  </div>
+  <div id="heartArena" class="reveal" style="position:relative;width:100%;max-width:400px;height:300px;margin:0 auto;background:rgba(26,0,8,0.6);border:1px solid rgba(255,107,157,0.3);border-radius:12px;overflow:hidden;cursor:pointer;"></div>
+  <div id="heartEnd" style="display:none;font-family:'Scheherazade New',serif;font-size:clamp(1.1rem,3.5vw,1.5rem);color:#ff6b9d;margin-top:1rem;"></div>
+  <button class="game-btn reveal" onclick="startHeartGame()" style="margin-top:1.5rem;">العب مجدداً ↻</button>
+</section>
+
+<!-- ========== GAME 4: WORD SEARCH ========== -->
+<section id="game4" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">الكلمات المخفية 🔤</p>
+  <div class="divider reveal">
+    <div class="divider-line"></div>
+    <span class="divider-sym">✦</span>
+    <div class="divider-line"></div>
+  </div>
+  <p class="game-intro reveal">ابحثي عن كلمات الحب المخفية! 🌸</p>
+  <div id="wordBank" class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;max-width:400px;margin:1rem auto;"></div>
+  <div id="wordGrid" class="reveal" style="display:inline-block;margin:1rem auto;border:1px solid rgba(232,116,154,0.3);background:rgba(255,255,255,0.8);border-radius:8px;padding:0.5rem;"></div>
+  <div id="wordMsg" style="font-family:'Scheherazade New',serif;font-size:clamp(1.1rem,3.5vw,1.4rem);color:#ff6b9d;margin-top:1rem;min-height:2rem;"></div>
+  <button class="game-btn reveal" onclick="initWordSearch()" style="margin-top:1rem;">لعبة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 5: SPIN THE BOTTLE ========== -->
+<section id="game5" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">عجلة الحب 🎡</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">♥</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">أدوري العجلة واعرفي ماذا يقول لكِ قلبه 💌</p>
+  <div class="reveal" style="display:inline-block;position:relative;margin:1rem auto;">
+    <canvas id="wheelCanvas" width="280" height="280" style="border-radius:50%;cursor:pointer;filter:drop-shadow(0 0 20px rgba(255,107,157,0.4));"></canvas>
+    <div id="wheelPtr" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:2rem;filter:drop-shadow(0 0 8px rgba(192,0,60,0.8));">▼</div>
+  </div>
+  <br>
+  <button class="game-btn reveal" onclick="spinWheel()" id="spinBtn">أدوري العجلة 🎡</button>
+  <div id="wheelResult" style="font-family:'Scheherazade New',serif;font-size:clamp(1.1rem,3.5vw,1.4rem);color:#ff6b9d;margin-top:1rem;min-height:2rem;text-shadow:0 0 15px rgba(255,107,157,0.5);"></div>
+</section>
+
+<!-- ========== GAME 6: GUESS THE EMOJI ========== -->
+<section id="game6" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">خمّني من الإيموجي 🤔</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">💭</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">خمّني الكلمة من الإيموجي! لديكِ 3 محاولات 💪</p>
+  <div id="emojiGame" class="reveal" style="max-width:450px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initEmojiGame()" style="margin-top:1rem;">لعبة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 7: LOVE METER ========== -->
+<section id="game7" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">مقياس الحب 💘</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">❤</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">اكتبي اسمك واسمه لنقيس الحب بينكما! 🌹</p>
+  <div class="reveal" style="max-width:400px;margin:0 auto;">
+    <input id="lmName1" placeholder="اسمك..." style="width:100%;padding:0.8rem 1rem;margin-bottom:0.8rem;background:rgba(192,0,60,0.1);border:1px solid rgba(255,107,157,0.3);border-radius:8px;color:#ffe0ec;font-family:'Scheherazade New',serif;font-size:1.1rem;text-align:center;outline:none;">
+    <input id="lmName2" placeholder="اسمه..." style="width:100%;padding:0.8rem 1rem;margin-bottom:1rem;background:rgba(192,0,60,0.1);border:1px solid rgba(255,107,157,0.3);border-radius:8px;color:#ffe0ec;font-family:'Scheherazade New',serif;font-size:1.1rem;text-align:center;outline:none;">
+    <button class="game-btn" onclick="calcLove()" style="width:100%;">احسب الحب 💕</button>
+  </div>
+  <div id="loveMeterResult" style="margin-top:1.5rem;"></div>
+</section>
+
+<!-- ========== GAME 8: REACTION GAME ========== -->
+<section id="game8" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">سرعة الاستجابة ⚡</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">⚡</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">اضغطي على القلب بأسرع ما يمكن حين يظهر! ❤️</p>
+  <div id="reactionBox" class="reveal" onclick="reactionClick()" style="width:100%;max-width:350px;height:220px;margin:1rem auto;border:1px solid rgba(255,107,157,0.3);border-radius:12px;background:rgba(26,0,8,0.8);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:4rem;transition:background 0.3s;user-select:none;">
+    <span id="reactionEmoji">🖤</span>
+  </div>
+  <div id="reactionMsg" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#ff9dc0;letter-spacing:0.15em;margin-bottom:0.5rem;min-height:1.5rem;"></div>
+  <div id="reactionScore" style="font-family:'Scheherazade New',serif;font-size:clamp(1rem,3vw,1.3rem);color:#ff6b9d;min-height:2rem;"></div>
+  <button class="game-btn reveal" onclick="startReaction()" style="margin-top:1rem;">ابدأي اللعب ↻</button>
+</section>
+
+<!-- ========== GAME 9: LOVE PUZZLE ========== -->
+<section id="game9" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">رتّبي الرسالة 📝</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">✦</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">رتّبي كلمات جملة الحب بالترتيب الصحيح! 🌸</p>
+  <div id="puzzleGame" class="reveal" style="max-width:500px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initPuzzle()" style="margin-top:1rem;">جملة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 10: TRUE OR FALSE ========== -->
+<section id="game10" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">صح أو خطأ؟ ✅</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">❓</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">هل هذه المعلومة صحيحة أم خاطئة؟ 🤔</p>
+  <div id="tfGame" class="reveal" style="max-width:450px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initTF()" style="margin-top:1rem;">جولة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 11: MISSING LETTER ========== -->
+<section id="game11" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">أكملي الكلمة 🔡</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">✦</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">أكملي كلمة الحب بالحرف الناقص! 💕</p>
+  <div id="mlGame" class="reveal" style="max-width:420px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initML()" style="margin-top:1rem;">كلمة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 12: HEART SNAKE ========== -->
+<section id="game12" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">ثعبان الحب 🐍</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">♥</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">اجمعي القلوب دون أن تصطدمي! ❤️</p>
+  <div style="margin:0.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#ff9dc0;">نقاط: <strong id="snakeScore">0</strong></div>
+  <canvas id="snakeCanvas" width="300" height="300" style="border:1px solid rgba(255,107,157,0.3);border-radius:8px;background:rgba(26,0,8,0.9);display:block;margin:0 auto;"></canvas>
+  <div id="snakeMsg" style="font-family:'Scheherazade New',serif;font-size:1.1rem;color:#ff6b9d;margin-top:0.8rem;min-height:1.5rem;"></div>
+  <div style="display:grid;grid-template-columns:repeat(3,48px);gap:4px;margin:1rem auto;width:fit-content;">
+    <div></div><button onclick="snakeDir('up')" style="width:48px;height:48px;background:rgba(192,0,60,0.2);border:1px solid rgba(255,107,157,0.3);border-radius:6px;color:#ff6b9d;font-size:1.2rem;cursor:pointer;">↑</button><div></div>
+    <button onclick="snakeDir('left')" style="width:48px;height:48px;background:rgba(192,0,60,0.2);border:1px solid rgba(255,107,157,0.3);border-radius:6px;color:#ff6b9d;font-size:1.2rem;cursor:pointer;">←</button>
+    <button onclick="startSnake()" style="width:48px;height:48px;background:rgba(192,0,60,0.3);border:1px solid rgba(255,107,157,0.5);border-radius:6px;color:#ff6b9d;font-size:0.65rem;cursor:pointer;">ابدأ</button>
+    <button onclick="snakeDir('right')" style="width:48px;height:48px;background:rgba(192,0,60,0.2);border:1px solid rgba(255,107,157,0.3);border-radius:6px;color:#ff6b9d;font-size:1.2rem;cursor:pointer;">→</button>
+    <div></div><button onclick="snakeDir('down')" style="width:48px;height:48px;background:rgba(192,0,60,0.2);border:1px solid rgba(255,107,157,0.3);border-radius:6px;color:#ff6b9d;font-size:1.2rem;cursor:pointer;">↓</button><div></div>
+  </div>
+</section>
+
+<!-- ========== GAME 13: COUNT HEARTS ========== -->
+<section id="game13" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">عدّي القلوب ❤️</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">💝</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">كم قلب في الشاشة؟ عدّيها وأجيبي! 💕</p>
+  <div id="countGame" class="reveal" style="max-width:420px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initCountGame()" style="margin-top:1rem;">جولة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 14: BALLOON POP ========== -->
+<section id="game14" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">فقّعي البالونات 🎈</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">♥</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">فقّعي البالونات الحمراء واتجنبي الزرقاء! 🎯</p>
+  <div style="margin:0.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#ff9dc0;">نقاط: <strong id="balloonScore">0</strong> | حياة: <strong id="balloonLives">❤️❤️❤️</strong></div>
+  <div id="balloonArena" class="reveal" style="position:relative;width:100%;max-width:380px;height:300px;margin:0.5rem auto;background:rgba(26,0,8,0.7);border:1px solid rgba(255,107,157,0.3);border-radius:12px;overflow:hidden;"></div>
+  <div id="balloonMsg" style="font-family:'Scheherazade New',serif;font-size:1.1rem;color:#ff6b9d;margin-top:0.5rem;min-height:1.5rem;"></div>
+  <button class="game-btn reveal" onclick="startBalloon()" style="margin-top:0.5rem;">ابدأ ↻</button>
+</section>
+
+<!-- ========== GAME 15: LOVE RIDDLES ========== -->
+<section id="game15" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">ألغاز الحب 🧩</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">💭</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">فكّري وحلّي الألغاز الرومانسية! 🌹</p>
+  <div id="riddleGame" class="reveal" style="max-width:460px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initRiddle()" style="margin-top:1rem;">لغز جديد ↻</button>
+</section>
+
+<!-- ========== GAME 16: SPEED MATH ========== -->
+<section id="game16" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">رياضيات الحب ➕</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">💕</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">احسبي بسرعة! كل إجابة صحيحة = قلب 💖</p>
+  <div id="mathGame" class="reveal" style="max-width:400px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initMath()" style="margin-top:1rem;">جولة جديدة ↻</button>
+</section>
+
+<!-- ========== GAME 17: LOVE STORY ========== -->
+<section id="game17" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">قصة حب تفاعلية 📖</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">📖</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">اختاري مسار قصة حبك وشوفي النهاية! 🌹</p>
+  <div id="storyGame" class="reveal" style="max-width:480px;margin:0 auto;"></div>
+</section>
+
+<!-- ========== GAME 18: PATTERN MEMORY ========== -->
+<section id="game18" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;">
+  <p class="section-label reveal">ذاكرة الألوان 🌈</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">✨</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">احفظي النمط وكرّريه! كل جولة تزداد صعوبة 🎯</p>
+  <div style="margin:0.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#ff9dc0;">المستوى: <strong id="patternLevel">1</strong></div>
+  <div id="patternGrid" class="reveal" style="display:grid;grid-template-columns:repeat(2,100px);gap:10px;margin:1rem auto;width:fit-content;"></div>
+  <div id="patternMsg" style="font-family:'Scheherazade New',serif;font-size:1.1rem;color:#ff6b9d;margin:0.8rem 0;min-height:1.5rem;"></div>
+  <button class="game-btn reveal" onclick="startPattern()" style="margin-top:0.5rem;">ابدأ ↻</button>
+</section>
+
+<!-- ========== GAME 19: TYPING LOVE ========== -->
+<section id="game19" style="position:relative;z-index:1;padding:5rem 2rem;text-align:center;background:linear-gradient(180deg,var(--dark),var(--dark2),var(--dark));">
+  <p class="section-label reveal">اكتبي جملة الحب ⌨️</p>
+  <div class="divider reveal"><div class="divider-line"></div><span class="divider-sym">💌</span><div class="divider-line"></div></div>
+  <p class="game-intro reveal">اكتبي الجملة بأسرع ما تستطيعين! ⚡</p>
+  <div id="typingGame" class="reveal" style="max-width:480px;margin:0 auto;"></div>
+  <button class="game-btn reveal" onclick="initTyping()" style="margin-top:1rem;">جولة جديدة ↻</button>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="ornament-line" style="margin:0 auto 1.5rem"></div>
+  <div class="footer-names">علي ❤️ ريان</div>
+  <p class="footer-sub">إلى الأبد وما بعده</p>
+  <div class="ornament-line" style="margin:1.5rem auto 0"></div>
+</footer>
+
+<script>
+// ===== CURSOR =====
+const cur = document.getElementById('cursor');
+const dot = document.getElementById('cursorDot');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+});
+
+// ===== PARTICLES =====
+const particleContainer = document.getElementById('particles');
+const emojis = ['✦','❤','♥','✿','❋','✸','◆'];
+for(let i = 0; i < 25; i++){
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const em = emojis[Math.floor(Math.random()*emojis.length)];
+  p.textContent = em;
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    font-size:${6+Math.random()*12}px;
+    color:${Math.random()>0.5?'rgba(255,107,157,0.6)':'rgba(192,0,60,0.5)'};
+    animation-duration:${8+Math.random()*14}s;
+    animation-delay:${Math.random()*10}s;
+  `;
+  particleContainer.appendChild(p);
+}
+
+// ===== FALLING PETALS =====
+const petalSyms = ['🌹','💮','✿','❀','🌸'];
+for(let i = 0; i < 8; i++){
+  const p = document.createElement('div');
+  p.className = 'petal-el';
+  p.textContent = petalSyms[Math.floor(Math.random()*petalSyms.length)];
+  p.style.cssText = `
+    left:${Math.random()*100}%;
+    font-size:${10+Math.random()*14}px;
+    animation-duration:${10+Math.random()*15}s;
+    animation-delay:${Math.random()*12}s;
+  `;
+  document.body.appendChild(p);
+}
+
+// ===== COUNTER =====
+function updateCounter(){
+  const start = new Date('2026-01-08T00:00:00');
+  const now = new Date();
+  let diff = Math.floor((now - start) / 1000);
+  if(diff < 0) diff = 0;
+  const days  = Math.floor(diff / 86400);
+  const hours = Math.floor((diff % 86400) / 3600);
+  const mins  = Math.floor((diff % 3600) / 60);
+  const secs  = diff % 60;
+  document.getElementById('cnt-days').textContent  = days;
+  document.getElementById('cnt-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cnt-mins').textContent  = String(mins).padStart(2,'0');
+  document.getElementById('cnt-secs').textContent  = String(secs).padStart(2,'0');
+}
+updateCounter();
+setInterval(updateCounter, 1000);
+
+// ===== PHOTOS =====
+const photoGrid = document.getElementById('photosGrid');
+const photoModal = document.getElementById('photoModal');
+const modalImg   = document.getElementById('modalImg');
+for(let i = 0; i < 6; i++){
+  const frame = document.createElement('div');
+  frame.className = 'photo-frame';
+  frame.innerHTML = `
+    <div class="photo-placeholder">
+      <span class="photo-plus">＋</span>
+      <span class="photo-num">صورة ${i+1}</span>
+    </div>
+    <img src="" alt="ذكرى ${i+1}">
+    <input type="file" accept="image/*" class="photo-input">
+  `;
+  const input = frame.querySelector('.photo-input');
+  const img   = frame.querySelector('img');
+  frame.addEventListener('click', () => {
+    if(frame.classList.contains('has-image')){
+      modalImg.src = img.src;
+      photoModal.classList.add('open');
+    } else {
+      input.click();
+    }
+  });
+  input.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      img.src = ev.target.result;
+      frame.classList.add('has-image');
+    };
+    reader.readAsDataURL(file);
+  });
+  photoGrid.appendChild(frame);
+}
+function closeModal(){ photoModal.classList.remove('open'); }
+photoModal.addEventListener('click', e => { if(e.target===photoModal) closeModal(); });
+
+// ===== MEMORY GAME =====
+const gameEmojis = ['💍','🌹','💌','🕯️','🥂','💐','🎶','✨'];
+let gameCards = [...gameEmojis,...gameEmojis];
+let flipped = [], matched = 0, moves = 0, locked = false;
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function initGame(){
+  matched = 0; moves = 0; flipped = []; locked = false;
+  document.getElementById('moveCount').textContent = '0';
+  document.getElementById('matchCount').textContent = '0';
+  document.getElementById('winMsg').classList.remove('show');
+  const board = document.getElementById('gameBoard');
+  board.innerHTML = '';
+  shuffle(gameCards);
+  gameCards.forEach((emoji, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.emoji = emoji;
+    card.dataset.index = i;
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-face card-back">♥</div>
+        <div class="card-face card-front">${emoji}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => flipCard(card));
+    board.appendChild(card);
+  });
+}
+
+function flipCard(card){
+  if(locked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+  card.classList.add('flipped');
+  flipped.push(card);
+  if(flipped.length === 2){
+    moves++;
+    document.getElementById('moveCount').textContent = moves;
+    locked = true;
+    setTimeout(checkMatch, 900);
+  }
+}
+
+function checkMatch(){
+  const [a, b] = flipped;
+  if(a.dataset.emoji === b.dataset.emoji){
+    a.classList.add('matched'); b.classList.add('matched');
+    a.classList.remove('flipped'); b.classList.remove('flipped');
+    matched++;
+    document.getElementById('matchCount').textContent = matched;
+    if(matched === 8) setTimeout(() => document.getElementById('winMsg').classList.add('show'), 400);
+  } else {
+    a.classList.remove('flipped'); b.classList.remove('flipped');
+  }
+  flipped = []; locked = false;
+}
+
+initGame();
+
+// ===== QUIZ GAME =====
+const quizQuestions = [
+  { q: 'متى كان تاريخ بداية علاقتنا؟', options: ['8 يناير 2026','14 فبراير 2026','1 يناير 2026','8 مارس 2026'], correct: 0 },
+  { q: 'ما اسم حبيبها الذي يعشقها؟', options: ['محمد','عمر','علي','أحمد'], correct: 2 },
+  { q: 'ماذا يرى علي في عيني ريان؟', options: ['النجوم','عالماً يودّ البقاء فيه','البحر','المستقبل'], correct: 1 },
+  { q: 'كيف يصف علي ابتسامة ريان؟', options: ['تسرق النوم','تسلب منه كل حزن','تضيء الليل','تملأ القلب'], correct: 1 },
+  { q: 'ما الذي يختاره علي بدلاً من نعيم الدنيا؟', options: ['المال','السفر','لحظة قرب ريان','الشهرة'], correct: 2 },
+];
+let quizIndex = 0, quizScore = 0;
+
+function initQuiz(){
+  quizIndex = 0; quizScore = 0;
+  document.getElementById('quizResult').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const c = document.getElementById('quizContainer');
+  if(quizIndex >= quizQuestions.length){
+    c.innerHTML = '';
+    const r = document.getElementById('quizResult');
+    r.style.display = 'block';
+    const msgs = [
+      'ما شاء الله عليكِ! 🌸 أنتِ تعرفين كل شي!',
+      'أحلى وأذكى! 💕 ريان ذاكرتها قوية زي حبها!',
+      'تمام التمام يا ريوني! ❤️',
+    ];
+    r.innerHTML = `نتيجتك: ${quizScore}/${quizQuestions.length} 🏆<br><small>${msgs[Math.min(quizScore,2)]}</small>`;
+    return;
+  }
+  const q = quizQuestions[quizIndex];
+  c.innerHTML = `
+    <div style="background:rgba(26,0,8,0.9);border:1px solid rgba(255,107,157,0.3);border-radius:10px;padding:1.5rem;margin-bottom:1rem;">
+      <p style="font-family:'Scheherazade New',serif;font-size:clamp(1rem,3vw,1.2rem);color:#ffe0ec;margin-bottom:1.2rem;line-height:1.8;">${quizIndex+1}. ${q.q}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+        ${q.options.map((opt,i)=>`
+          <button onclick="answerQuiz(${i})" style="background:rgba(255,228,239,0.8);border:1px solid rgba(232,116,154,0.35);border-radius:8px;padding:0.6rem 0.8rem;font-family:'Scheherazade New',serif;font-size:clamp(0.85rem,2.5vw,1rem);color:#ffe0ec;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(232,116,154,0.2)'" onmouseout="this.style.background='rgba(255,228,239,0.8)'">${opt}</button>
+        `).join('')}
+      </div>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(255,224,236,0.5);letter-spacing:0.2em;">سؤال ${quizIndex+1} من ${quizQuestions.length}</p>
+  `;
+}
+
+function answerQuiz(i){
+  if(i === quizQuestions[quizIndex].correct) quizScore++;
+  quizIndex++;
+  renderQuestion();
+}
+
+initQuiz();
+
+// ===== HEART CLICKER GAME =====
+let heartInterval, heartTimerInterval, heartRunning = false;
+
+function startHeartGame(){
+  const arena = document.getElementById('heartArena');
+  const end = document.getElementById('heartEnd');
+  document.getElementById('heartScore').textContent = '0';
+  document.getElementById('heartTimer').textContent = '15';
+  end.style.display = 'none';
+  arena.innerHTML = '';
+  heartRunning = true;
+  clearInterval(heartInterval);
+  clearInterval(heartTimerInterval);
+
+  let score = 0, timeLeft = 15;
+
+  heartInterval = setInterval(() => {
+    if(!heartRunning) return;
+    const h = document.createElement('div');
+    const size = 28 + Math.random()*24;
+    const x = Math.random()*(arena.offsetWidth - size);
+    const y = Math.random()*(arena.offsetHeight - size);
+    const hearts = ['❤️','💕','💖','💗','💓','🌸','💝'];
+    h.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.cssText = `position:absolute;left:${x}px;top:${y}px;font-size:${size}px;cursor:pointer;transition:transform 0.1s;user-select:none;animation:popIn 0.3s ease;`;
+    h.addEventListener('click', e => {
+      e.stopPropagation();
+      score++;
+      document.getElementById('heartScore').textContent = score;
+      h.style.transform = 'scale(1.5)';
+      setTimeout(() => h.remove(), 150);
+    });
+    arena.appendChild(h);
+    setTimeout(() => { if(h.parentNode) h.remove(); }, 1500);
+  }, 600);
+
+  heartTimerInterval = setInterval(() => {
+    timeLeft--;
+    document.getElementById('heartTimer').textContent = timeLeft;
+    if(timeLeft <= 0){
+      clearInterval(heartInterval);
+      clearInterval(heartTimerInterval);
+      heartRunning = false;
+      arena.innerHTML = '';
+      end.style.display = 'block';
+      let msg = score < 10 ? '🌸 حاولي مرة ثانية يا ريان!' :
+                score < 20 ? '💕 برافو! أنتِ سريعة!' :
+                '🔥 يا سلام! قلبك أسرع من قلبي!';
+      end.innerHTML = `جمعتِ ${score} قلب! ${msg}`;
+    }
+  }, 1000);
+}
+
+// add popIn animation
+const styleEl = document.createElement('style');
+styleEl.textContent = `@keyframes popIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }`;
+document.head.appendChild(styleEl);
+
+startHeartGame();
+
+// ===== WORD SEARCH GAME =====
+const wsWords = ['حب','ريان','علي','قلب','عشق','نور','حياة','أبد'];
+let wsGrid = [], wsSize = 8, wsFound = [];
+
+function initWordSearch(){
+  wsFound = [];
+  wsGrid = Array.from({length:wsSize}, () => Array(wsSize).fill(''));
+  const arabicLetters = 'ابتثجحخدذرزسشصضطظعغفقكلمنهوي';
+
+  // place words
+  const placed = [];
+  wsWords.forEach(word => {
+    let tries = 0;
+    while(tries < 100){
+      const dir = Math.random() > 0.5 ? 'h' : 'v';
+      const r = Math.floor(Math.random()*wsSize);
+      const c = Math.floor(Math.random()*wsSize);
+      if(dir==='h' && c+word.length<=wsSize){
+        let ok = true;
+        for(let i=0;i<word.length;i++) if(wsGrid[r][c+i] && wsGrid[r][c+i]!==word[i]) ok=false;
+        if(ok){ for(let i=0;i<word.length;i++) wsGrid[r][c+i]=word[i]; placed.push({word,r,c,dir}); break; }
+      } else if(dir==='v' && r+word.length<=wsSize){
+        let ok = true;
+        for(let i=0;i<word.length;i++) if(wsGrid[r+i][c] && wsGrid[r+i][c]!==word[i]) ok=false;
+        if(ok){ for(let i=0;i<word.length;i++) wsGrid[r+i][c]=word[i]; placed.push({word,r,c,dir}); break; }
+      }
+      tries++;
+    }
+  });
+
+  // fill blanks
+  for(let r=0;r<wsSize;r++) for(let c=0;c<wsSize;c++)
+    if(!wsGrid[r][c]) wsGrid[r][c]=arabicLetters[Math.floor(Math.random()*arabicLetters.length)];
+
+  // render word bank
+  const bank = document.getElementById('wordBank');
+  bank.innerHTML = wsWords.map(w=>`<span id="wb_${w}" style="font-family:'Scheherazade New',serif;font-size:1rem;padding:0.3rem 0.8rem;background:rgba(192,0,60,0.2);border:1px solid rgba(255,107,157,0.3);border-radius:20px;color:#ff9dc0;">${w}</span>`).join('');
+
+  // render grid
+  const gridEl = document.getElementById('wordGrid');
+  const cellSize = Math.min(36, Math.floor((window.innerWidth-80)/wsSize));
+  gridEl.innerHTML = '';
+  const table = document.createElement('table');
+  table.style.cssText = 'border-collapse:collapse;';
+  for(let r=0;r<wsSize;r++){
+    const tr = document.createElement('tr');
+    for(let c=0;c<wsSize;c++){
+      const td = document.createElement('td');
+      td.textContent = wsGrid[r][c];
+      td.dataset.r = r; td.dataset.c = c;
+      td.style.cssText = `width:${cellSize}px;height:${cellSize}px;text-align:center;vertical-align:middle;font-family:'Scheherazade New',serif;font-size:${cellSize*0.55}px;cursor:pointer;border:1px solid rgba(232,116,154,0.15);color:#ffe0ec;transition:background 0.2s;border-radius:4px;`;
+      td.addEventListener('click', () => handleWsClick(td, r, c, placed));
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  gridEl.appendChild(table);
+  document.getElementById('wordMsg').textContent = '';
+}
+
+let wsSelected = [];
+function handleWsClick(td, r, c, placed){
+  if(td.style.background.includes('116,154')) return;
+  wsSelected.push({td,r,c});
+  td.style.background = 'rgba(232,116,154,0.25)';
+  if(wsSelected.length < 2) return;
+
+  const [{r:r1,c:c1},{r:r2,c:c2}] = wsSelected;
+  placed.forEach(({word,r:wr,c:wc,dir}) => {
+    if(wsFound.includes(word)) return;
+    const cells = [];
+    for(let i=0;i<word.length;i++) cells.push(dir==='h'?{r:wr,c:wc+i}:{r:wr+i,c:wc});
+    const hit1 = cells.some(cl=>cl.r===r1&&cl.c===c1);
+    const hit2 = cells.some(cl=>cl.r===r2&&cl.c===c2);
+    if(hit1&&hit2){
+      wsFound.push(word);
+      cells.forEach(cl=>{
+        const el = document.querySelector(`td[data-r="${cl.r}"][data-c="${cl.c}"]`);
+        if(el) el.style.background='rgba(232,116,154,0.55)';
+      });
+      const wb = document.getElementById(`wb_${word}`);
+      if(wb) wb.style.cssText='font-family:"Scheherazade New",serif;font-size:1rem;padding:0.3rem 0.8rem;background:rgba(232,116,154,0.4);border:1px solid rgba(232,116,154,0.6);border-radius:20px;color:#ff6b9d;text-decoration:line-through;opacity:0.7;';
+      document.getElementById('wordMsg').textContent = `وجدتِ: ${word}! 🌸`;
+      if(wsFound.length===wsWords.length) setTimeout(()=>{ document.getElementById('wordMsg').innerHTML='🎉 وجدتِ كل الكلمات! أنتِ رائعة يا ريان! ❤️'; },300);
+    }
+  });
+  wsSelected = wsSelected.filter(s=>!wsFound.flatMap(w=>{
+    const p=placed.find(pp=>pp.word===w);
+    if(!p) return [];
+    const cells=[];
+    for(let i=0;i<w.length;i++) cells.push(p.dir==='h'?{r:p.r,c:p.c+i}:{r:p.r+i,c:p.c});
+    return cells;
+  }).some(cl=>cl.r===s.r&&cl.c===s.c));
+  if(wsSelected.length>=2){
+    wsSelected.forEach(s=>{ if(!wsFound.some(w=>{const p=placed.find(pp=>pp.word===w);if(!p)return false;for(let i=0;i<w.length;i++){const cell=p.dir==='h'?{r:p.r,c:p.c+i}:{r:p.r+i,c:p.c};if(cell.r===s.r&&cell.c===s.c)return true;}return false;})) s.td.style.background=''; });
+    wsSelected=[];
+  }
+}
+
+initWordSearch();
+
+// ===== WHEEL GAME =====
+const wheelSegments = [
+  {text:'أحبكِ أكثر من الأمس',color:'#c0003c'},
+  {text:'أنتِ نور حياتي',color:'#8b0030'},
+  {text:'ابتسامتك تسعدني',color:'#c0003c'},
+  {text:'أنتِ أجمل ما جرى لي',color:'#7a0028'},
+  {text:'قلبي بيدكِ دائماً',color:'#c0003c'},
+  {text:'أشتاق إليكِ دائماً',color:'#8b0030'},
+  {text:'أنتِ كل شيء بالنسبة لي',color:'#c0003c'},
+  {text:'أعشقكِ يا ريان',color:'#7a0028'},
+];
+let wheelAngle = 0, wheelSpinning = false;
+const wheelCanvas = document.getElementById('wheelCanvas');
+const wheelCtx = wheelCanvas.getContext('2d');
+
+function drawWheel(angle){
+  const cx = 140, cy = 140, r = 130;
+  const seg = wheelSegments.length;
+  const arc = (Math.PI*2)/seg;
+  wheelCtx.clearRect(0,0,280,280);
+  wheelSegments.forEach((s,i) => {
+    const start = angle + i*arc;
+    wheelCtx.beginPath();
+    wheelCtx.moveTo(cx,cy);
+    wheelCtx.arc(cx,cy,r,start,start+arc);
+    wheelCtx.fillStyle = s.color;
+    wheelCtx.fill();
+    wheelCtx.strokeStyle = 'rgba(255,107,157,0.4)';
+    wheelCtx.lineWidth = 1.5;
+    wheelCtx.stroke();
+    wheelCtx.save();
+    wheelCtx.translate(cx,cy);
+    wheelCtx.rotate(start + arc/2);
+    wheelCtx.textAlign = 'right';
+    wheelCtx.fillStyle = '#ffe0ec';
+    wheelCtx.font = 'bold 10px Scheherazade New, serif';
+    wheelCtx.fillText(s.text, r-8, 4);
+    wheelCtx.restore();
+  });
+  // center circle
+  wheelCtx.beginPath();
+  wheelCtx.arc(cx,cy,18,0,Math.PI*2);
+  wheelCtx.fillStyle = '#1a0008';
+  wheelCtx.fill();
+  wheelCtx.strokeStyle = 'rgba(255,107,157,0.6)';
+  wheelCtx.lineWidth = 2;
+  wheelCtx.stroke();
+  wheelCtx.fillStyle = '#ff6b9d';
+  wheelCtx.font = 'bold 14px serif';
+  wheelCtx.textAlign = 'center';
+  wheelCtx.fillText('♥', cx, cy+5);
+}
+drawWheel(0);
+
+function spinWheel(){
+  if(wheelSpinning) return;
+  wheelSpinning = true;
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('wheelResult').textContent = '';
+  const extra = Math.PI*2 * (5 + Math.random()*5);
+  const target = wheelAngle + extra;
+  const duration = 3000;
+  const start = performance.now();
+  const from = wheelAngle;
+  function animate(now){
+    const t = Math.min((now-start)/duration,1);
+    const ease = 1 - Math.pow(1-t,4);
+    wheelAngle = from + extra*ease;
+    drawWheel(wheelAngle);
+    if(t < 1){ requestAnimationFrame(animate); }
+    else {
+      wheelSpinning = false;
+      document.getElementById('spinBtn').disabled = false;
+      const arc = (Math.PI*2)/wheelSegments.length;
+      const norm = ((Math.PI*1.5 - wheelAngle) % (Math.PI*2) + Math.PI*2) % (Math.PI*2);
+      const idx = Math.floor(norm/arc) % wheelSegments.length;
+      document.getElementById('wheelResult').innerHTML = `💌 "${wheelSegments[idx].text}"`;
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+// ===== EMOJI GUESS GAME =====
+const emojiPuzzles = [
+  {emoji:'❤️🏠', answer:'بيت الحب', hint:'مكان مليء بالحب'},
+  {emoji:'🌹💌', answer:'رسالة وردة', hint:'هدية رومانسية'},
+  {emoji:'⭐🌙', answer:'نجمة وقمر', hint:'يضيئان الليل'},
+  {emoji:'💍💕', answer:'خاتم حب', hint:'رمز الارتباط'},
+  {emoji:'🌊❤️', answer:'موج الحب', hint:'لا يتوقف أبداً'},
+  {emoji:'🦋💖', answer:'فراشة القلب', hint:'خفيف وجميل'},
+  {emoji:'🌸🌙', answer:'زهرة الليل', hint:'تتفتح في الظلام'},
+  {emoji:'🎶❤️', answer:'موسيقى الحب', hint:'تلامس الأرواح'},
+];
+let egIdx = 0, egTries = 0;
+
+function initEmojiGame(){
+  egIdx = Math.floor(Math.random()*emojiPuzzles.length);
+  egTries = 0;
+  renderEmojiGame();
+}
+
+function renderEmojiGame(){
+  const p = emojiPuzzles[egIdx];
+  const c = document.getElementById('emojiGame');
+  c.innerHTML = `
+    <div style="background:rgba(26,0,8,0.9);border:1px solid rgba(255,107,157,0.3);border-radius:12px;padding:2rem;">
+      <div style="font-size:4rem;margin-bottom:1rem;letter-spacing:0.5rem;">${p.emoji}</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:rgba(255,224,236,0.5);letter-spacing:0.2em;margin-bottom:1.2rem;">تلميح: ${p.hint}</p>
+      <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;" id="egOptions"></div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(255,224,236,0.4);">المحاولات المتبقية: ${3-egTries}</p>
+    </div>
+  `;
+  // generate options
+  const opts = [p.answer];
+  while(opts.length < 4){
+    const r = emojiPuzzles[Math.floor(Math.random()*emojiPuzzles.length)].answer;
+    if(!opts.includes(r)) opts.push(r);
+  }
+  opts.sort(()=>Math.random()-0.5);
+  const container = document.getElementById('egOptions');
+  opts.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.textContent = opt;
+    btn.style.cssText = 'background:rgba(192,0,60,0.15);border:1px solid rgba(255,107,157,0.35);border-radius:8px;padding:0.5rem 1rem;font-family:"Scheherazade New",serif;font-size:0.95rem;color:#ffe0ec;cursor:pointer;transition:all 0.2s;';
+    btn.onmouseover = () => btn.style.background='rgba(192,0,60,0.3)';
+    btn.onmouseout = () => btn.style.background='rgba(192,0,60,0.15)';
+    btn.onclick = () => {
+      if(opt === p.answer){
+        btn.style.background='rgba(0,150,50,0.4)'; btn.style.borderColor='#00c864';
+        setTimeout(()=>{ document.getElementById('emojiGame').innerHTML='<p style="font-family:\'Scheherazade New\',serif;font-size:1.4rem;color:#ff6b9d;padding:2rem;">🎉 أحسنتِ! الإجابة الصحيحة: '+p.answer+'</p>'; initEmojiGame(); },1200);
+      } else {
+        egTries++;
+        btn.style.background='rgba(150,0,0,0.4)'; btn.style.borderColor='#ff0040'; btn.disabled=true;
+        if(egTries>=3){ setTimeout(()=>{ document.getElementById('emojiGame').innerHTML='<p style="font-family:\'Scheherazade New\',serif;font-size:1.2rem;color:#ff6b9d;padding:2rem;">💔 الإجابة كانت: '+p.answer+'</p>'; },800); }
+        else renderEmojiGame();
+      }
+    };
+    container.appendChild(btn);
+  });
+}
+initEmojiGame();
+
+// ===== LOVE METER =====
+function calcLove(){
+  const n1 = document.getElementById('lmName1').value.trim() || 'ريان';
+  const n2 = document.getElementById('lmName2').value.trim() || 'علي';
+  let hash = 0;
+  for(let c of n1+n2) hash += c.charCodeAt(0);
+  // always give 85-99 for علي+ريان
+  let pct = (n1.includes('ريان')||n2.includes('ريان')) && (n1.includes('علي')||n2.includes('علي'))
+    ? 97 : 60 + (hash % 35);
+  const msgs = [
+    pct>=95 ? '💘 حب الأبد! أنتما مصيران لبعض!' :
+    pct>=80 ? '💕 حب عميق وجميل جداً!' :
+    pct>=65 ? '🌸 علاقة رائعة ومميزة!' :
+    '💖 في قلوبكما شيء جميل!'
+  ];
+  const r = document.getElementById('loveMeterResult');
+  r.innerHTML = `
+    <div style="font-family:'Scheherazade New',serif;">
+      <p style="font-size:clamp(1rem,3vw,1.3rem);color:#ff9dc0;margin-bottom:1rem;">${n1} ♥ ${n2}</p>
+      <div style="background:rgba(26,0,8,0.6);border:1px solid rgba(255,107,157,0.3);border-radius:50px;overflow:hidden;height:24px;margin:0 auto 1rem;max-width:350px;">
+        <div style="height:100%;width:0%;background:linear-gradient(90deg,#c0003c,#ff6b9d);border-radius:50px;transition:width 1.5s ease;animation:lmFill 1.5s forwards;" id="lmBar"></div>
+      </div>
+      <p style="font-size:clamp(2rem,8vw,3.5rem);color:#ff6b9d;font-weight:700;text-shadow:0 0 20px rgba(255,107,157,0.6);">${pct}%</p>
+      <p style="font-size:clamp(1rem,3vw,1.2rem);color:#ff9dc0;margin-top:0.5rem;">${msgs[0]}</p>
+    </div>
+  `;
+  const style2 = document.createElement('style');
+  style2.textContent = `@keyframes lmFill { to { width: ${pct}%; } }`;
+  document.head.appendChild(style2);
+  setTimeout(()=>{ const b=document.getElementById('lmBar'); if(b) b.style.width=pct+'%'; },100);
+}
+
+// ===== REACTION GAME =====
+let reactionState = 'idle', reactionTimeout, reactionStart, reactionRound=0, reactionScores=[];
+
+function startReaction(){
+  reactionRound=0; reactionScores=[];
+  document.getElementById('reactionScore').textContent='';
+  nextReactionRound();
+}
+
+function nextReactionRound(){
+  if(reactionRound>=5){ 
+    const avg = Math.round(reactionScores.reduce((a,b)=>a+b,0)/reactionScores.length);
+    const msg = avg<300?'⚡ خارقة! أسرع من البرق!':avg<500?'🔥 سريعة جداً! رائعة!':'💕 جيد! حاولي مجدداً!';
+    document.getElementById('reactionScore').innerHTML=`متوسط سرعتك: ${avg}ms<br>${msg}`;
+    document.getElementById('reactionMsg').textContent='انتهت اللعبة!';
+    document.getElementById('reactionBox').style.background='rgba(26,0,8,0.8)';
+    document.getElementById('reactionEmoji').textContent='🖤';
+    reactionState='idle'; return;
+  }
+  reactionState='waiting';
+  document.getElementById('reactionBox').style.background='rgba(26,0,8,0.8)';
+  document.getElementById('reactionEmoji').textContent='🖤';
+  document.getElementById('reactionMsg').textContent=`جولة ${reactionRound+1}/5 — انتظري...`;
+  const delay = 1500 + Math.random()*3000;
+  reactionTimeout = setTimeout(()=>{
+    reactionState='ready';
+    reactionStart = performance.now();
+    document.getElementById('reactionBox').style.background='rgba(192,0,60,0.5)';
+    document.getElementById('reactionEmoji').textContent='❤️';
+    document.getElementById('reactionMsg').textContent='اضغطي الآن!';
+  }, delay);
+}
+
+function reactionClick(){
+  if(reactionState==='waiting'){
+    clearTimeout(reactionTimeout);
+    document.getElementById('reactionMsg').textContent='مبكر جداً! انتظري القلب الأحمر 😅';
+    document.getElementById('reactionBox').style.background='rgba(80,0,0,0.5)';
+    reactionState='idle';
+    setTimeout(nextReactionRound, 1200);
+  } else if(reactionState==='ready'){
+    const ms = Math.round(performance.now()-reactionStart);
+    reactionScores.push(ms);
+    reactionRound++;
+    document.getElementById('reactionMsg').textContent=`${ms}ms! ${ms<300?'رائع! ⚡':ms<500?'جيد! 💕':'حاولي أسرع! 💪'}`;
+    document.getElementById('reactionBox').style.background='rgba(0,80,30,0.4)';
+    reactionState='idle';
+    setTimeout(nextReactionRound, 1000);
+  }
+}
+startReaction();
+
+// ===== LOVE PUZZLE (WORD ORDER) =====
+const puzzleSentences = [
+  { words: ['أنتِ','أجمل','قصة','في','حياتي'], sentence: 'أنتِ أجمل قصة في حياتي' },
+  { words: ['قلبي','لك','وحدك','إلى','الأبد'], sentence: 'قلبي لك وحدك إلى الأبد' },
+  { words: ['أحبكِ','حباً','لا','تحدّه','المسافات'], sentence: 'أحبكِ حباً لا تحدّه المسافات' },
+  { words: ['أنتِ','نور','يبدّد','عتمة','أيامي'], sentence: 'أنتِ نور يبدّد عتمة أيامي' },
+  { words: ['ابتسامتكِ','تسلب','مني','كل','حزن'], sentence: 'ابتسامتكِ تسلب مني كل حزن' },
+];
+let puzzleSelected = [], puzzleCurrent = null, puzzleShuffled = [];
+
+function initPuzzle(){
+  puzzleCurrent = puzzleSentences[Math.floor(Math.random()*puzzleSentences.length)];
+  puzzleShuffled = [...puzzleCurrent.words].sort(()=>Math.random()-0.5);
+  puzzleSelected = [];
+  renderPuzzle();
+}
+
+function renderPuzzle(msg=''){
+  const c = document.getElementById('puzzleGame');
+  c.innerHTML = `
+    <div style="background:rgba(26,0,8,0.9);border:1px solid rgba(255,107,157,0.3);border-radius:12px;padding:1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.85rem;color:rgba(255,224,236,0.5);letter-spacing:0.2em;margin-bottom:1rem;">رتّبي الكلمات لتكوّني الجملة الصحيحة</p>
+      <div id="puzzleAnswer" style="min-height:50px;border:1px dashed rgba(255,107,157,0.3);border-radius:8px;padding:0.8rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;align-items:center;font-family:'Scheherazade New',serif;font-size:1.1rem;color:#ffe0ec;">
+        ${puzzleSelected.map(w=>`<span onclick="removePuzzleWord('${w}')" style="background:rgba(192,0,60,0.4);border:1px solid rgba(255,107,157,0.5);border-radius:6px;padding:0.3rem 0.7rem;cursor:pointer;">${w}</span>`).join('')}
+        ${puzzleSelected.length===0?'<span style="color:rgba(255,224,236,0.3);">اضغطي على الكلمات أدناه</span>':''}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;margin-bottom:1rem;">
+        ${puzzleShuffled.filter(w=>!puzzleSelected.includes(w)).map(w=>`
+          <button onclick="addPuzzleWord('${w}')" style="background:rgba(192,0,60,0.15);border:1px solid rgba(255,107,157,0.35);border-radius:8px;padding:0.4rem 0.9rem;font-family:'Scheherazade New',serif;font-size:1rem;color:#ffe0ec;cursor:pointer;">${w}</button>
+        `).join('')}
+      </div>
+      <button onclick="checkPuzzle()" style="background:rgba(192,0,60,0.3);border:1px solid rgba(255,107,157,0.5);border-radius:8px;padding:0.5rem 1.5rem;font-family:'Scheherazade New',serif;font-size:1rem;color:#ff6b9d;cursor:pointer;">تحقق ✓</button>
+      ${msg?`<p style="font-family:'Scheherazade New',serif;font-size:1.1rem;color:#ff6b9d;margin-top:1rem;">${msg}</p>`:''}
+    </div>
+  `;
+}
+
+function addPuzzleWord(w){
+  if(!puzzleSelected.includes(w)){ puzzleSelected.push(w); renderPuzzle(); }
+}
+function removePuzzleWord(w){
+  puzzleSelected = puzzleSelected.filter(x=>x!==w); renderPuzzle();
+}
+function checkPuzzle(){
+  if(puzzleSelected.join(' ')===puzzleCurrent.sentence){
+    renderPuzzle('🎉 ممتاز! أنتِ رائعة يا ريان! ❤️');
+    setTimeout(initPuzzle,2000);
+  } else {
+    renderPuzzle('💔 حاولي مرة ثانية!');
+  }
+}
+initPuzzle();
+
+// ===== SCROLL REVEAL =====
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
